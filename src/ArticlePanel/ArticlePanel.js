@@ -49,4 +49,4 @@ class ArticlePanel extends Component{
     }
 }
 
-export default BlogPanel;
+export default ArticlePanel;
