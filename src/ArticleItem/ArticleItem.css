@@ -1,0 +1,38 @@
+.article-intro-col {
+  display: inline-flex;
+  color: black;
+  height: 100%;
+}
+
+.article-intro-panel {
+  margin: auto 5px;
+  text-align: left;
+}
+
+.article-description {
+  text-align: left;
+}
+
+.article-description p {
+  font-size: 18px;
+}
+
+.article-chip {
+  font-size: 18px;
+}
+
+.fill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.fill img {
+  padding-left: 20px;
+  padding-right: 20px;
+  flex-shrink: 0;
+  min-width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+}

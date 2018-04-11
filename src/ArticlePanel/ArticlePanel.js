@@ -11,12 +11,12 @@ class ArticlePanel extends Component{
     }
 
     componentDidMount (){
-        this.loadMoreBlogs();
+        this.loadMoreArticles();
     }
 
-    loadMoreBlogs() {
+    loadMoreArticles() {
         this.setState({
-            blogs: [
+            articles: [
                 {
                     'url' : 'http://www.freebuf.com/news/167200.html',
                     'title' : 'Cisco Devices have Serious Vulnerabilities',
@@ -40,12 +40,42 @@ class ArticlePanel extends Component{
         })
     }
 
-    renderBlogs() {
+    renderArticles() {
+        var articles_list = this.state.articles.map( article => {
+            return(
+                <a className='list-group-item' key={article.digest} href='#'>
+                    <ArticleItem article={article}/>
+                </a>
+            )});
 
+        return(
+            <div className='container-fluid'>
+                <div className='list-group'>
+                    { articles_list }
+                </div>
+            </div>
+        );
     }
 
     render() {
-
+        if (this.state.articles)
+        {
+            return(
+                <div>
+                    {this.renderArticles()}
+                </div>
+            );
+        }
+        else
+        {
+            return(
+                <div>
+                    <div id='msg-app-loading'>
+                        Loading
+                    </div>
+                </div>
+            );
+        }
     }
 }
 

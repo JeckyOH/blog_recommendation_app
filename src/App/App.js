@@ -5,6 +5,8 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import './App.css';
 
+import ArticlePanel from '../ArticlePanel/ArticlePanel'
+
 class App extends Component {
     render() {
         return (
@@ -14,7 +16,7 @@ class App extends Component {
                     <h1 className="App-title">Your Favorite Blogs</h1>
                 </header>
                 <div className="container">
-
+                    <ArticlePanel/>
                 </div>
             </div>
         );
