@@ -1,6 +1,7 @@
 import './ArticlePanel.css';
 
 import React, {Component} from 'react';
+import _ from 'lodash'
 
 import ArticleItem from '../ArticleItem/ArticleItem';
 
@@ -13,6 +14,7 @@ class ArticlePanel extends Component{
 
     componentDidMount (){
         this.loadMoreArticles();
+        this.loadMoreArticles = _.debounce(this.loadMoreArticles, 1000);
         window.addEventListener('scroll', () => {this.scrollHandler();});
     }
 
