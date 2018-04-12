@@ -8,36 +8,35 @@ class ArticlePanel extends Component{
     constructor() {
         super();
         this.state = {articles: null};
+        //this.scrollHandler = this.scrollHandler.bind(this);
     }
 
     componentDidMount (){
         this.loadMoreArticles();
+        window.addEventListener('scroll', () => {this.scrollHandler();});
+    }
+
+    scrollHandler() {
+      let scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+      if ( (scrollY + window.innerHeight) >= (document.body.offsetHeight - 50)) {
+        console.log('Load more articles.');
+        this.loadMoreArticles();
+      }
     }
 
     loadMoreArticles() {
-        this.setState({
-            articles: [
-                {
-                    'url' : 'http://www.freebuf.com/news/167200.html',
-                    'title' : 'Cisco Devices have Serious Vulnerabilities',
-                    'description' : '思科在其IOS软件中修补了30多个漏洞，其中包括一个严重的远程代码执行漏洞，该漏洞可以对数十万甚至数百万台设备暴露在网络上的设备发起的远程攻击。',
-                    'source' : 'freebuf',
-                    'urlToImage' : 'http://image.3001.net/images/20180402/15226483193095.png',
-                    'digest' : 'ASSSSS',
-                    'reason' : 'Recommended'
-                },
-                {
-                    'url' : 'http://www.freebuf.com/news/167200.html',
-                    'title' : 'Cisco Devices have Serious Vulnerabilities',
-                    'description' : '思科在其IOS软件中修补了30多个漏洞，其中包括一个严重的远程代码执行漏洞，该漏洞可以对数十万甚至数百万台设备暴露在网络上的设备发起的远程攻击。',
-                    'source' : 'freebuf',
-                    'urlToImage' : 'http://image.3001.net/images/20180402/15226483193095.png',
-                    'digest' : 'ASSSSS',
-                    'reason' : 'Recommended',
-                    'time' : 'Today'
-                }
-            ]
-        })
+      let request = new Request('http://localhost:3000/articles', {
+        method: 'GET',
+        cache: false
+      });
+
+      fetch(request)
+        .then( res => res.json())
+        .then( articles => {
+          this.setState({
+            articles: this.state.articles ? this.state.articles.concat(articles) : articles
+          });
+      });
     }
 
     renderArticles() {
