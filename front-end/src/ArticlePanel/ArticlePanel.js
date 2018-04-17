@@ -1,7 +1,7 @@
 import './ArticlePanel.css';
 
 import React, {Component} from 'react';
-import _ from 'lodash'
+import _ from 'lodash';
 
 import ArticleItem from '../ArticleItem/ArticleItem';
 
@@ -47,7 +47,7 @@ class ArticlePanel extends Component{
                 <a className='list-group-item' key={article.digest} href='#'>
                     <ArticleItem article={article}/>
                 </a>
-            )});
+            );});
 
         return(
             <div className='container-fluid'>
@@ -69,12 +69,12 @@ class ArticlePanel extends Component{
         }
         else
         {
-            return(
-                <div>
+          return(
+            <div>
                     <div id='msg-app-loading'>
                         Loading
                     </div>
-                </div>
+            </div>
             );
         }
     }
