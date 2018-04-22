@@ -10,7 +10,7 @@
 */build*
 
 # database
-*data*
+*data/*
 
 # pyc
 *pyc*

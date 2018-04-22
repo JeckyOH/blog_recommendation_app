@@ -1,4 +1,4 @@
-from cloudAMQP_client import CloudAMQPClient
+from message_queue_client import RabbitMqClient
 
 SERVER_URL = 'amqp://xxihpvle:8cjkdhbgzv_PBpDNgP6g3FI_PqhhArUE@buffalo.rmq.cloudamqp.com/xxihpvle'
 QUEUE_NAME = 'test'

@@ -3,7 +3,7 @@
 import pika
 import json
 
-class CloudAMQPClient:
+class RabbitMqClient:
     def __init__(self, server_url, queue_name):
         self.server_url = server_url
         self.queue_name = queue_name
