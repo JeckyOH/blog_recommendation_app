@@ -16,15 +16,11 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h1 className="App-title">Your Favorite Blogs</h1>
-                </header>
 
                 <NavBar />
 
                 <Switch>
-                  <Route path="/" component={ArticlePanel} exact={true} />
+                  <Route path="/" component={ArticlePanel} exact />
                   <Route path="/login" component={LogIn} />
                   <Route path="/signup" component={SignUp} />
                 </Switch>
