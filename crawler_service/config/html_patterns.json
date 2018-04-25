@@ -1,0 +1,4 @@
+{
+  "bbc.com": "//div[@class='story-body'][1]/div[@class='story-body__inner']/p/text()",
+  "cnn.com": "//p[@class='zn-body__paragraph speakable']//text() | //div[@class='zn-body__paragraph speakable']//text()| //div[@class='zn-body__paragraph']//text()"
+}
