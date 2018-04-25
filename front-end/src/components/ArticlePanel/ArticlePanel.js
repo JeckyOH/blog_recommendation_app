@@ -29,7 +29,7 @@ class ArticlePanel extends Component{
     loadMoreArticles() {
       let request = new Request('http://localhost:3000/articles', {
         method: 'GET',
-        cache: false
+        cache: "no-store"
       });
 
       fetch(request)
